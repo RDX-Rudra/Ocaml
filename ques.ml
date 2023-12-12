@@ -1,5 +1,5 @@
 let is_alpha c =
-  (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
+  (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');;
 
 let extract_words s =
   let rec extract acc buffer = function
@@ -20,7 +20,7 @@ let extract_words s =
         extract acc buffer rest
       )
   in
-  extract [] (Buffer.create 16) (String.to_seq s |> List.of_seq)
+  extract [] (Buffer.create 16) (String.to_seq s |> List.of_seq);;
 
 let words_in_string (s: string) : string list =
   extract_words s;;
