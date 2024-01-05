@@ -22,3 +22,12 @@ module ListStack = struct
     |[] -> raise Empty 
     |_::s -> s 
 end;;
+
+ListStack.push 2 (ListStack.push 1 ListStack.empty);;
+ListStack.(push 2 (push 1 empty))
+;;
+
+ListStack.(empty |> push 1 |> push 2);;
+let s1 = ListStack.(empty |> push 1 |> push 2)
+let s2 = ListStack.(empty |> push 3)
+;;
