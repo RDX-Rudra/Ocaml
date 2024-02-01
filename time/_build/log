@@ -1,9 +1,9 @@
-# C:\OCaml64\home\RUDRA\.opam\4.14.0+mingw64c\bin\dune.exe exec time
+# C:\OCaml64\home\RUDRA\.opam\4.14.0+mingw64c\bin\dune.exe build
 # OCAMLPARAM: unset
 # Shared cache: disabled
 # Workspace root: "D:\\OCaml programs\\Codes\\time"
 # Auto-detected concurrency: 16
-$ C:\OCaml64\home\RUDRA\.opam\4.14.0+mingw64c\bin\ocamlc.opt.exe -config > C:\OCaml64\tmp\dune_a7ad5b_output
+$ C:\OCaml64\home\RUDRA\.opam\4.14.0+mingw64c\bin\ocamlc.opt.exe -config > C:\OCaml64\tmp\dune_e3cb19_output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -38,26 +38,22 @@ $ C:\OCaml64\home\RUDRA\.opam\4.14.0+mingw64c\bin\ocamlc.opt.exe -config > C:\OC
 #  ; env =
 #      map
 #        { "DUNE_OCAML_HARDCODED" :
-#            "C:\\\\OCaml64\\\\home\\\\RUDRA\\\\.opam\\\\4.14.0+mingw64c\\lib"
+#            "C:\\OCaml64\\home\\RUDRA\\.opam\\4.14.0+mingw64c\\lib"
 #        ; "DUNE_OCAML_STDLIB" :
 #            "C:/OCaml64/home/RUDRA/.opam/4.14.0+mingw64c/lib/ocaml"
 #        ; "DUNE_SOURCEROOT" : "D:\\OCaml programs\\Codes\\time"
 #        ; "INSIDE_DUNE" : "D:\\OCaml programs\\Codes\\time\\_build/default"
 #        ; "MANPATH" :
-#            "D:\\OCaml programs\\Codes\\time\\_build/install/default/bin"
-#        ; "OCAML_COLOR" : "always"
+#            "d:\\OCaml programs\\Codes\\time\\_build/install/default/bin"
 #        ; "OCAMLFIND_IGNORE_DUPS_IN" :
-#            "D:\\OCaml programs\\Codes\\time\\_build/install/default/lib"
+#            "d:\\OCaml programs\\Codes\\time\\_build/install/default/lib"
 #        ; "OCAMLPATH" :
-#            "D:\\OCaml programs\\Codes\\time\\_build/install/default/lib"
+#            "d:\\OCaml programs\\Codes\\time\\_build/install/default/lib"
 #        ; "OCAMLTOP_INCLUDE_PATH" :
-#            "D:\\OCaml programs\\Codes\\time\\_build/install/default/lib/toplevel"
-#        ; "OPAMCOLOR" : "always"
+#            "d:\\OCaml programs\\Codes\\time\\_build/install/default/lib/toplevel"
 #        }
 #  ; findlib_paths =
-#      [ External
-#          "C:\\\\OCaml64\\\\home\\\\RUDRA\\\\.opam\\\\4.14.0+mingw64c\\lib"
-#      ]
+#      [ External "C:\\OCaml64\\home\\RUDRA\\.opam\\4.14.0+mingw64c\\lib" ]
 #  ; arch_sixtyfour = true
 #  ; natdynlink_supported = true
 #  ; supports_shared_libraries = true
@@ -131,8 +127,15 @@ $ C:\OCaml64\home\RUDRA\.opam\4.14.0+mingw64c\bin\ocamlc.opt.exe -config > C:\OC
 #      ; windows_unicode = true
 #      }
 #  }
+# Promoting "_build/default/time.opam" to "time.opam"
+$ (cd _build/default && C:\OCaml64\home\RUDRA\.opam\4.14.0+mingw64c\bin\ocamlc.opt.exe -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I test/.time.eobjs/byte -no-alias-deps -opaque -o test/.time.eobjs/byte/dune__exe__Time.cmi -c -intf test/time.mli)
+$ (cd _build/default && C:\OCaml64\home\RUDRA\.opam\4.14.0+mingw64c\bin\ocamlc.opt.exe -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -a -o lib/time.cma lib/.time.objs/byte/time.cmo)
+$ (cd _build/default && C:\OCaml64\home\RUDRA\.opam\4.14.0+mingw64c\bin\ocamlopt.opt.exe -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I test/.time.eobjs/byte -I test/.time.eobjs/native -intf-suffix .ml -no-alias-deps -opaque -o test/.time.eobjs/native/dune__exe__Time.cmx -c -impl test/time.ml)
+$ (cd _build/default && C:\OCaml64\home\RUDRA\.opam\4.14.0+mingw64c\bin\ocamlopt.opt.exe -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I bin/.main.eobjs/byte -I bin/.main.eobjs/native -I lib/.time.objs/byte -I lib/.time.objs/native -intf-suffix .ml -no-alias-deps -opaque -o bin/.main.eobjs/native/dune__exe__Main.cmx -c -impl bin/main.ml)
 $ (cd _build/default && C:\OCaml64\home\RUDRA\.opam\4.14.0+mingw64c\bin\ocamlopt.opt.exe -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o bin/main.exe lib/time.cmxa bin/.main.eobjs/native/dune__exe__Main.cmx)
 > File "_none_", line 1:
 > Error: No implementations provided for the following modules:
 >          Unix referenced from bin/.main.eobjs/native/dune__exe__Main.cmx
 [2]
+$ (cd _build/default && C:\OCaml64\home\RUDRA\.opam\4.14.0+mingw64c\bin\ocamlopt.opt.exe -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -shared -linkall -I lib -o lib/time.cmxs lib/time.cmxa)
+$ (cd _build/default && C:\OCaml64\home\RUDRA\.opam\4.14.0+mingw64c\bin\ocamlopt.opt.exe -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o test/time.exe test/.time.eobjs/native/dune__exe__Time.cmx)

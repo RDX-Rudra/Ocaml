@@ -1,3 +1,4 @@
+
 module type Monad = 
 sig 
     type 'a t 
@@ -12,9 +13,9 @@ module TimeMonad : Monad = struct
     let return x = {v = x; avgtime = 0.0 ; tottime = 0.0 ; runcount = 0} 
     let convert f = 
         fun x -> 
-            let start = Sys.time () in 
+            let start = Unix.time () in 
             let res = f x in 
-            let stop = Sys.time () in 
+            let stop = Unix.time () in 
             let time = stop -. start in
             {v = res; avgtime = time ; tottime = time ; runcount = 1 }
             
@@ -49,3 +50,14 @@ let resnew =
 
 resnew time () 10;;
 
+(* let avg_run2  f x n = 
+let start = TimeMonad.return x in 
+let conv = TimeMonad.convert f in
+let rec run n acc = 
+  if n < 0 then TimeMonad.extract acc 
+  else run (n-1) (
+    print_endline (string_of_float acc.avgtime) ;
+    acc >>= conv 
+  )
+in
+run (n) start *)
