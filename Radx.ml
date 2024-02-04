@@ -44,8 +44,8 @@ let play (i, j) matrix =
 let mat = [|[|1; 1; 1; 1; 1|]; 
             [|1; 0; 0; 1; 0|];
             [|1; 0; 1; 1; 1|];
-            [|1; 0; 0; 0; 1|];
-            [|1; 1; 1; 1; 1|]|] in
+            [|0; 0; 0; 0; 1|];
+            [|1; 1; 1; 0; 1|]|] in
 let starting_position = (1, 2) in
 play starting_position mat
 ;;
