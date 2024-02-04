@@ -34,9 +34,10 @@ let play (i, j) matrix =
         else ()
     with outOfBound -> ()
   in helper (i, j);
-  match (Stack.pop_opt res) with
-  | None -> None
-  | Some x -> x
+  match Stack.pop_opt res with
+    | None -> Printf.printf "No valid position found\n"
+    | Some (Some (x, y)) -> Printf.printf "Position found: Some (%d, %d)\n" x y
+    | Some None -> Printf.printf "Unexpected None in the stack\n"
 ;;
 
 (* Example usage *)
@@ -46,9 +47,7 @@ let mat = [|[|1; 1; 1; 1; 1|];
             [|1; 0; 0; 0; 1|];
             [|1; 1; 1; 1; 1|]|] in
 let starting_position = (1, 2) in
-match play starting_position mat with
-| None -> Printf.printf "No valid position found\n"
-| Some (x, y) -> Printf.printf "Position found: Some (%d, %d)\n" x y
+play starting_position mat
 ;;
 
 (* let solver matrix start = 
