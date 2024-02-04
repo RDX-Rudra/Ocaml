@@ -43,10 +43,12 @@ let play (i, j) matrix =
 let mat = [|[|1; 1; 1; 1; 1|]; 
             [|1; 0; 0; 1; 0|];
             [|1; 0; 1; 1; 1|];
-            [|0; 0; 0; 0; 1|];
-            [|1; 1; 1; 0; 1|]|] in
+            [|1; 0; 0; 0; 1|];
+            [|1; 1; 1; 1; 1|]|] in
 let starting_position = (1, 2) in
-play starting_position mat
+match play starting_position mat with
+| None -> Printf.printf "No valid position found\n"
+| Some (x, y) -> Printf.printf "Position found: Some (%d, %d)\n" x y
 ;;
 
 (* let solver matrix start = 
