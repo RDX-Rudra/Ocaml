@@ -11,62 +11,66 @@ let fillup n =
  matrix
 ;; *)
 
-let border_ele mat (x, y) = 
-  if x <= 0 || x >= (Array.length mat -1) || y<=0 || y>= (Array.length mat -1) then true
-  else false;;
-
-let connected_ele mat (x, y) =
-  if x <= 0 then
-  [1; mat.(x).(y+1); mat.(x+1).(y); mat.(x).(y-1)]
-  else if y>= (Array.length mat -1) then
-  [mat.(x-1).(y); 1; mat.(x+1).(y); mat.(x).(y-1)]
-  else if x >= Array.length mat - 1 then
-  [mat.(x-1).(y); mat.(x).(y+1); 1; mat.(x).(y-1)]
-  else if y<=0 then
-  [mat.(x-1).(y); mat.(x).(y+1); mat.(x+1).(y); 1]
-  else
-  [mat.(x-1).(y); mat.(x).(y+1); mat.(x+1).(y); mat.(x).(y-1)]
-  ;;
-let move_up (x, y) = Some (x-1, y);;
-let move_right (x,y) = Some (x, y+1);;
-let move_down (x, y) = Some (x+1, y);;
-let move_left (x,y) = Some (x, y-1);;
-
-let one_move i j lstct =
-  let up = if List.nth lstct 0 = 0 then move_up (i, j) else None in
-  let right = if List.nth lstct 1 = 0 then move_right (i, j) else None in
-  let down = if List.nth lstct 2 = 0 then move_down (i, j) else None in
-  let left = if List.nth lstct 3 = 0 then move_left (i, j) else None in
-  [up; right; down; left]
+let border_ele mat pos =
+  match pos with
+  | Some (x, y) -> x <= 0 || x >= (Array.length mat - 1) || y <= 0 || y >= (Array.length mat.(0) - 1)
+  | None -> false
 ;;
 
-let take (Some (x,y)) = (x,y);;
-let play (x, y) matrix =
-  let start = Some (x, y) in
-  let rec move start matrix =
-    let lstct = connected_ele matrix (x, y) in
-    let possible_moves = one_move x y lstct in
-    let filtered_moves =
-      List.filter (fun move_opt ->
-        match move_opt with
-        | Some (a, b) -> (a <> x || b <> y)
-        | None -> false
-      ) possible_moves
-    in
-    match filtered_moves with
-    | [] -> None
-    | hd :: _ -> if (border_ele matrix (take hd)) then hd
-    else move hd matrix
-  in
-  move start matrix
+let play (i, j) matrix =
+  let res = Stack.create () in
+  let start = Some (i, j) in
+  let rec helper (x,y) =
+    try
+      if matrix.(x).(y) = 0 then
+        if (border_ele matrix (Some (x, y))) && (Some (x, y) <> start) then
+          Stack.push (Some (x, y)) res
+        else
+          (matrix.(x).(y) <- 1;
+          helper (x, y+1);
+          helper (x+1, y);
+          helper (x, y-1);
+          helper (x-1, y);)
+        else ()
+    with outOfBound -> ()
+  in helper (i, j);
+  match (Stack.pop_opt res) with
+  | None -> None
+  | Some x -> x
 ;;
-
 
 (* Example usage *)
-let matrix = [|[|1; 1; 1; 1; 1|]; [|1; 0; 0; 1; 0|]; [|1; 0; 1; 1; 1|]; [|1; 0; 0; 0; 1|];
-  [|1; 1; 1; 0; 1|]|] in
+let mat = [|[|1; 1; 1; 1; 1|]; 
+            [|1; 0; 0; 1; 0|];
+            [|1; 0; 1; 1; 1|];
+            [|0; 0; 0; 0; 1|];
+            [|1; 1; 1; 0; 1|]|] in
 let starting_position = (1, 2) in
-match play starting_position matrix with
-| Some (a, b) -> print_endline ("Bob moved to: (" ^ string_of_int a ^ ", " ^ string_of_int b ^ ")")
-| None -> print_endline "Bob has no valid moves"
+play starting_position mat
 ;;
+
+(* let solver matrix start = 
+  let res = Stack.create () in 
+  let n = Array.length matrix in 
+  let a,b = start in 
+  let outline x y = if x = 0 || y = 0 || x = n - 1 || y = n - 1 then true else false in
+  let is_start x y = if x = a && y = b then true else false in
+  let rec helper (x,y) acc = 
+      try (  
+          if matrix.(x).(y) = 0 then 
+              if (outline x y ) && ((is_start x y) = false) 
+              then Stack.push ((x,y)::acc) res
+              else ( 
+                  matrix.(x).(y) <- (-1);
+                  (helper ((x+1),y) ((x,y)::acc));  
+                  (helper ((x),y+1) ((x,y)::acc));
+                  (helper ((x),y-1) ((x,y)::acc));
+                  (helper ((x-1),y) ((x,y)::acc))
+              )
+
+          else () 
+      )
+      with outOfBound -> ()
+  in helper (a,b) [];
+  res
+;; *)
