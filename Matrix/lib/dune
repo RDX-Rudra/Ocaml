@@ -1,2 +1,2 @@
 (library
- (name Matrix))
+ (name matrix))

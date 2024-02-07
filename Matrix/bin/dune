@@ -1,4 +1,4 @@
 (executable
  (public_name Matrix)
  (name main)
- (libraries Matrix))
+ (libraries matrix))

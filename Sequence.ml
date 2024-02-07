@@ -6,7 +6,7 @@ val b : int list = [1; 0; <cycle>] *)
 (** [from n] is the infinite list [[n; n + 1; n + 2; ...]]. *)
 let rec from n = n :: from (n + 1);;
 (* val from : int -> int list = <fun> *)
-let nats = from 0;;
+(* let nats = from 0;; *)
 (* Stack overflow during evaluation (looping recursion?). *)
 (* type 'a mylist = Nil | Cons of 'a * 'a sequence;; *)
 (* Error: Unbound type constructor sequence *)
@@ -16,7 +16,7 @@ type 'a sequence = Cons of 'a * 'a sequence;;
 (* type 'a sequence = Cons of 'a * 'a sequence *)
 let rec from n = Cons (n, from (n+1));;
 (* val from : int -> int sequence = <fun> *)
-let nats = from 0;;
+(* let nats = from 0;; *)
 (* Stack overflow during evaluation (looping recursion?). *)
 type 'a sequence = Cons of 'a * (unit -> 'a sequence);;
 (* type 'a sequence = Cons of 'a * (unit -> 'a sequence) *)
