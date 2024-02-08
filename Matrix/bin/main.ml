@@ -1,5 +1,6 @@
 open Matrix;;
 
 (* Example usage *)
-let mat_file = "matinput" in
-mat_run mat_file
+let () =
+  let mat_file = Sys.argv in
+  mat_run mat_file
