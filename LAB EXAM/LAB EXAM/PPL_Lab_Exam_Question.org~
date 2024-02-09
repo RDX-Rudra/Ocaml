@@ -1,0 +1,17 @@
+*Principles of Programming Language Lab (PCC-CS-391) Exam Question, AY:2023-2024*
+
+Instructions::
+
+
+Problem Statement::
+  In short, your program is supposed to do the following:
+  1. Read from the command line 3 things:
+     - the name of a text file which contains a matrix of 0s and 1s in
+       a specified format (provided in the associated material
+       supplied to you for this exam).
+     - 2 integers indicating the row and column numbers of the entry
+       point of the matrix contained in the file read
+  2. Try to find a path from the entry point to at most one exit point
+     in the matrix, and print the exit point as a (row, column) pair.
+  3. If no exit point exists, print an appropriate message indicating
+     that.

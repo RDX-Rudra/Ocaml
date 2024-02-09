@@ -1,0 +1,6 @@
+(executable
+ (public_name mazesolver)
+  ;fill in the rest of the lines required to be able to build this
+  ;project
+)
+  

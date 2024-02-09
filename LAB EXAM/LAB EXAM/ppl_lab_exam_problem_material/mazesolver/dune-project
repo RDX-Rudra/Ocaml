@@ -1,0 +1,31 @@
+; NOTE: If your dune version is lower than the 3.13, then you might
+; need to change the version of dune in the line below to match your
+; installed version... or you can just do 'opam update' followed by
+; 'opam upgrade' to use the latest version of dune. But you MUST NOT
+; touch the rest of this file in any way.
+(lang dune 3.13)
+
+(name mazesolver)
+
+(generate_opam_files true)
+
+(source
+ (github username/reponame))
+
+(authors "Author Name")
+
+(maintainers "Maintainer Name")
+
+(license LICENSE)
+
+(documentation https://url/to/documentation)
+
+(package
+ (name mazesolver)
+ (synopsis "A short synopsis")
+ (description "A longer description")
+ (depends ocaml dune)
+ (tags
+  (topics "to describe" your project)))
+
+; See the complete stanza docs at https://dune.readthedocs.io/en/stable/dune-files.html#dune-project
