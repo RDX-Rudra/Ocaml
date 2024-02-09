@@ -7,7 +7,7 @@
 (source
  (github username/reponame))
 
-(authors "Author name")
+(authors "Rudra Das")
 
 (maintainers "Maintainer Name")
 
