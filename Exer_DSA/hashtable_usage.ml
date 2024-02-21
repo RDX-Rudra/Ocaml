@@ -12,3 +12,10 @@ let () = List.iter(fun (k, v) -> Hashtbl.add tab k v) ints
 ;;
 let () = assert (Hashtbl.find tab 1 = "1");;
 let () = assert ((try Hashtbl.find tab 0 with Not_found -> "") = "");;
+
+Hashtbl.stats tab;;
+
+let buckets h = (Hashtbl.stats h).num_buckets;;
+
+let single_binding h =
+  (Hashtbl.stats h).bucket_histogram.(1);;
