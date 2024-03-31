@@ -10,7 +10,6 @@ open Readmaze
    Replace those parts with your own code *)
 
 
-
 (** [solvemaze maze (entryrow, entrycol)] tries to find an exit point
     starting from the entry point to the maze (which is a 2D matrix of
     0s and 1s) indicated by the cell [(entryrow, entrycol)], i.e.,
@@ -23,7 +22,7 @@ open Readmaze
     it's value is not 0), then it fails with [failwith "Invalid Entry
     Point"] *)
 
-    
+
 (* let solvemaze (maze:int array array) ((entryrow, entrycol):(int * int)): (int * int) option =
   let res = Stack.create () in
   let start = Some (entryrow, entrycol) in
