@@ -27,7 +27,7 @@ let solvemaze (maze:int array array) ((entryrow, entrycol):(int * int)): (int * 
   let start = Some (entryrow, entrycol) in
   let border_ele mat pos =
     match pos with
-    | Some (x, y) -> x <= 0 || x >= (Array.length mat - 1) || y <= 0 || y >= (Array.length mat.(0) - 1)
+    | Some (x, y) -> x <= 0 || x >= (Array.length mat - 1) || y <= 0 || y >= (Array.length mat.(0) - 1) 
     | None -> false in
   let rec helper (x, y) =
     try
