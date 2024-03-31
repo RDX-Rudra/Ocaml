@@ -22,6 +22,8 @@ open Readmaze
     If entry point provided is invalid (the cell is not open, i.e.,
     it's value is not 0), then it fails with [failwith "Invalid Entry
     Point"] *)
+
+    
 (* let solvemaze (maze:int array array) ((entryrow, entrycol):(int * int)): (int * int) option =
   let res = Stack.create () in
   let start = Some (entryrow, entrycol) in
