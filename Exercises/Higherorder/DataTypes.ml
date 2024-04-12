@@ -45,11 +45,7 @@ pattern1 e2;;
 (* - : bool = true *)
 pattern1 a;;
 (* - : bool = false *)
-let pattern2 = function
-|[]->false
-|h1::h2::_->true
-;;
-(* val pattern2 : 'a list -> bool = <fun> *)
+
 let pattern2 = function
 |[]->false
 |h1::h2::_->true
