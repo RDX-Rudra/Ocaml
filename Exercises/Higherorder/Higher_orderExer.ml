@@ -118,18 +118,18 @@ sum_cube_odd_pipeline 5;;
 (* - : int = 153 *)
 let rec exist_rec n = function
 |[]->false
-|h::t-> h==n || exist_rec n t;;
+|h::t-> n h || exist_rec n t;;
 (* val exist_rec : 'a -> 'a list -> bool = <fun> *)
-exist_rec 5 [1;2;3;4;5;6];;
+exist_rec even [1;2;3;4;5;6];;
 (* - : bool = true *)
 (* exist_rec 5 [1;2;3;4;;6];; *)
 (* Error: Syntax error: ']' expected, the highlighted '[' might be unmatched *)
-exist_rec 5 [1;2;3;4;6];;
+exist_rec odd [1;2;3;4;6];;
 (* - : bool = false *)
 (* let exists_fold n lst = List.fold_left (fun x -> x==n) lst;; *)
 (* Error: This expression has type bool but an expression was expected of type
          'a -> 'b *)
-let exists_fold n lst = List.fold_left (fun n x-> x==n) n lst;;
+let exists_fold n lst = List.fold_left (fun acc x-> acc || n x) false lst;;
 (* val exists_fold : bool -> bool list -> bool = <fun> *)
 (* exists_fold 5 [1;2;3;4;6];; *)
 (* Error: This expression has type int but an expression was expected of type bool *)
